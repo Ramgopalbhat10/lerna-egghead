@@ -1,0 +1,16 @@
+{
+  "name": "@msrgb/root",
+  "private": true,
+  "scripts": {
+    "start:next-notion:dev": "lerna exec --scope @msrgb/next-notion -- yarn dev",
+    "start:react-serverless:dev": "lerna exec --scope @msrgb/react-serverless -- yarn dev"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/**"
+    ]
+  }
+}
