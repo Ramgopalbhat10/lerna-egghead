@@ -1,6 +1,6 @@
 import { ClientCredentials, AuthorizationCode } from "simple-oauth2";
 
-const fitbitApi = "https://www.fitbit.com";
+const fitbitApi = "https://api.fitbit.com";
 const siteUrl = "https://fitbit-serverless.netlify.app";
 const siteUrlLocal = "http://localhost:8888";
 
