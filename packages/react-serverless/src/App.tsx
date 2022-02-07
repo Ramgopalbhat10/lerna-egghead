@@ -1,4 +1,5 @@
 import { Form } from "./components/form";
+import { Login } from "./components/login";
 
 const App: React.FC = () => {
   return (
@@ -7,7 +8,8 @@ const App: React.FC = () => {
         <h2>Serverless TypeScript + React!</h2>
       </header>
       <main>
-        <Form />
+        {/* <Form /> */}
+        <Login />
       </main>
     </>
   );
