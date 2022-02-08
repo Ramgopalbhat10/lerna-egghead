@@ -4,7 +4,7 @@ import oauth2, { config } from "./utils/oauth";
 export const handler: Handler = (event, context, callback) => {
   const authorizationURI = oauth2.authorizeURL({
     redirect_uri: config.redirect_uri,
-    scope: "activity",
+    scope: "activity heartrate location nutrition profile sleep weight",
   });
   console.log("authorizationURI : ", authorizationURI);
 
