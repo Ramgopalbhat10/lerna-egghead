@@ -17,5 +17,7 @@ export const handler: Handler = (event, context, callback) => {
     body: "",
   };
 
-  return callback(null, response);
+  const token = callback(null, response);
+  console.log("Token details -> ", token);
+  return token;
 };
