@@ -24,7 +24,7 @@ export const config = {
   tokenHost: fitbitApi,
   authorizePath: `${fitbitApi}/oauth2/authorize`,
   tokenPath: `${fitbitApi}/oauth2/token`,
-  redirect_uri: `${siteUrlLocal}/.netlify/functions/auth-callback`,
+  redirect_uri: `${siteUrl}/.netlify/functions/auth-callback`,
 };
 
 function authInstance(credentials: Credentials) {
