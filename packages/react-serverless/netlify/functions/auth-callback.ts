@@ -5,7 +5,7 @@ import oauth2, { config } from "./utils/oauth";
 export const handler: Handler = async (event, context, callback) => {
   const { code, state } = event.queryStringParameters;
   const { url } = qs.parse(state);
-  console.log("Url is -> ", url);
+  console.log("state is -> ", state);
 
   const tokenParam = {
     code: code,
@@ -15,10 +15,10 @@ export const handler: Handler = async (event, context, callback) => {
     const accessToken = await oauth2.getToken(tokenParam);
     return {
       statusCode: 200,
-      headers: {
-        Location: `${url}&token=${accessToken}`,
-        "Cache-Control": "no-cache",
-      },
+      // headers: {
+      //   Location: `${url}&token=${accessToken}`,
+      //   "Cache-Control": "no-cache",
+      // },
       body: JSON.stringify({
         token: accessToken,
       }),
