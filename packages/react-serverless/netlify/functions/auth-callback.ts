@@ -1,9 +1,11 @@
 import { Handler } from "@netlify/functions";
+import qs from "querystring";
 import oauth2, { config } from "./utils/oauth";
 
 export const handler: Handler = async (event, context, callback) => {
-  const code = event.queryStringParameters.code;
-  // const state = event.queryStringParameters.state
+  const { code, state } = event.queryStringParameters;
+  const { url } = qs.parse(state);
+  console.log("Url is -> ", url);
 
   const tokenParam = {
     code: code,
@@ -13,6 +15,10 @@ export const handler: Handler = async (event, context, callback) => {
     const accessToken = await oauth2.getToken(tokenParam);
     return {
       statusCode: 200,
+      headers: {
+        Location: `${url}&token=${accessToken}`,
+        "Cache-Control": "no-cache",
+      },
       body: JSON.stringify({
         token: accessToken,
       }),
