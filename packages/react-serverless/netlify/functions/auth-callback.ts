@@ -15,10 +15,10 @@ export const handler: Handler = async (event, context, callback) => {
     const accessToken = await oauth2.getToken(tokenParam);
     return {
       statusCode: 200,
-      // headers: {
-      //   Location: `${url}&token=${accessToken}`,
-      //   "Cache-Control": "no-cache",
-      // },
+      headers: {
+        Location: "https://fitbit-serverless.netlify.app/",
+        "Cache-Control": "no-cache",
+      },
       body: JSON.stringify({
         token: accessToken,
       }),
