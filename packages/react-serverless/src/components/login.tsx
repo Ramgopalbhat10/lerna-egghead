@@ -13,11 +13,11 @@ export function Login() {
 
   return (
     <div>
-      {/* <a href="/.netlify/functions/auth">
+      <a href="/.netlify/functions/auth">
         <button>Login</button>
-      </a> */}
-      <button onClick={getAuthInfo}>Login</button>
-      {Object.keys(userAuth).length && <pre>{userAuth}</pre>}
+      </a>
+      {/* <button onClick={getAuthInfo}>Login</button>
+      {Object.keys(userAuth).length && <pre>{userAuth}</pre>} */}
     </div>
   );
 }
