@@ -14,6 +14,8 @@ export const handler: Handler = (event, context, callback) => {
       Location: authorizationURI,
       "Cache-Control": "no-cache",
       "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     },
     body: "",
   };
