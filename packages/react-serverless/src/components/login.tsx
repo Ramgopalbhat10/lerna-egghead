@@ -16,8 +16,7 @@ export function Login() {
       <a href="/.netlify/functions/auth">
         <button>Login</button>
       </a>
-      {/* <button onClick={getAuthInfo}>Login</button>
-      {userAuth && <p>{userAuth["token"]}</p>} */}
+      <button onClick={getAuthInfo}>Login</button>
     </div>
   );
 }
