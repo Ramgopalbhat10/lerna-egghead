@@ -1,11 +1,8 @@
 import { Handler } from "@netlify/functions";
-import qs from "querystring";
 import oauth2, { config } from "./utils/oauth";
 
 export const handler: Handler = async (event, context, callback) => {
-  const { code, state } = event.queryStringParameters;
-  const { url } = qs.parse(state);
-  console.log("state is -> ", state);
+  const { code } = event.queryStringParameters;
 
   const tokenParam = {
     code: code,
@@ -14,7 +11,7 @@ export const handler: Handler = async (event, context, callback) => {
   try {
     const accessToken = await oauth2.getToken(tokenParam);
     return {
-      statusCode: 200,
+      statusCode: 302,
       headers: {
         Location: "https://fitbit-serverless.netlify.app/",
         "Cache-Control": "no-cache",

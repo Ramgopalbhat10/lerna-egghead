@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export function Login() {
-  const [userAuth, setUserAuth] = useState({});
+  const [userAuth, setUserAuth] = useState();
 
   const getAuthInfo = async () => {
     const authInfoJson = await fetch("/.netlify/functions/auth");
@@ -13,11 +13,11 @@ export function Login() {
 
   return (
     <div>
-      <a href="/.netlify/functions/auth">
+      <a href="/.netlify/functions/auth" target="_blank">
         <button>Login</button>
       </a>
       {/* <button onClick={getAuthInfo}>Login</button>
-      {Object.keys(userAuth).length && <pre>{userAuth}</pre>} */}
+      {userAuth && <p>{userAuth["token"]}</p>} */}
     </div>
   );
 }

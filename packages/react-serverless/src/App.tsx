@@ -8,7 +8,7 @@ const App: React.FC = () => {
         <h2>Serverless TypeScript + React!</h2>
       </header>
       <main>
-        {/* <Form /> */}
+        <Form />
         <Login />
       </main>
     </>

@@ -15,6 +15,10 @@ var handler = async (event) => {
   console.log({ name, favoriteColor });
   return {
     statusCode: 200,
+    headers: {
+      Location: "http://localhost:8888",
+      "Cache-Control": "no-cache"
+    },
     body: JSON.stringify({
       name,
       favoriteColor,
