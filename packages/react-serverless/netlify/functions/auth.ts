@@ -13,6 +13,7 @@ export const handler: Handler = (event, context, callback) => {
     headers: {
       Location: authorizationURI,
       "Cache-Control": "no-cache",
+      "Access-Control-Allow-Origin": "*",
     },
     body: "",
   };
