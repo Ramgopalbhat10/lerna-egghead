@@ -18,6 +18,7 @@ export const handler: Handler = async (event, context, callback) => {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        token: accessToken["access_token"],
       },
       body: JSON.stringify({
         token: accessToken,
