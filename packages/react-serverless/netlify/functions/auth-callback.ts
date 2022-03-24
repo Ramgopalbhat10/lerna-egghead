@@ -10,6 +10,7 @@ export const handler: Handler = async (event, context, callback) => {
   };
   try {
     const accessToken = await oauth2.getToken(tokenParam);
+    console.log("Access token is -> ", accessToken);
     return {
       statusCode: 302,
       headers: {
