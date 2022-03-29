@@ -1,17 +1,11 @@
-import { Form } from "./components/form";
-import { Login } from "./components/login";
+import { Router, Outlet } from "@tanstack/react-location";
+import { route, location } from "./router/route";
 
 const App: React.FC = () => {
   return (
-    <>
-      <header>
-        <h2>Serverless TypeScript + React!</h2>
-      </header>
-      <main>
-        <Form />
-        <Login />
-      </main>
-    </>
+    <Router routes={route} location={location}>
+      <Outlet />
+    </Router>
   );
 };
 
