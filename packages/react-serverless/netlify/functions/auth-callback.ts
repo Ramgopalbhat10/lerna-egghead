@@ -1,9 +1,9 @@
 import { Handler } from "@netlify/functions";
 import oauth2, { config } from "./utils/oauth";
 require("dotenv").config();
-import Redis from "ioredis";
-const redis = new Redis(process.env.DB_CONNECTION_URL);
+import { Redis } from "@upstash/redis";
 
+const redis = Redis.fromEnv();
 export const handler: Handler = async (event, context, callback) => {
   const { code } = event.queryStringParameters;
 
@@ -23,7 +23,8 @@ export const handler: Handler = async (event, context, callback) => {
     };
     console.log("DB connection url -> ", process.env.DB_CONNECTION_URL);
     console.log("User details are is -> ", userDetails);
-    redis.set(userId, JSON.stringify(userDetails));
+    const redisResp = await redis.set(userId, JSON.stringify(userDetails));
+    console.log("Redis response -> ", redisResp);
 
     return {
       statusCode: 302,
