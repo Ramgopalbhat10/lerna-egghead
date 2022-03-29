@@ -11,7 +11,6 @@ export const handler: Handler = async (event, context, callback) => {
   };
   try {
     const accessToken = await oauth2.getToken(tokenParam);
-    console.log("Access token is -> ", accessToken);
 
     const userId = accessToken.token["user_id"];
     const token = accessToken.token["access_token"];
@@ -19,15 +18,12 @@ export const handler: Handler = async (event, context, callback) => {
       userId,
       token,
     };
-    console.log("DB connection url -> ", process.env.DB_CONNECTION_URL);
-    console.log("User details are is -> ", userDetails);
     const redisResp = await redis.set(userId, JSON.stringify(userDetails));
-    console.log("Redis response -> ", redisResp);
 
     return {
       statusCode: 302,
       headers: {
-        Location: `https://fitbit-serverless.netlify.app/dashboard?userId=${userId}`,
+        Location: `https://fitbit-serverless.netlify.app/login?userId=${userId}`,
         "Cache-Control": "no-cache",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "Content-Type",
