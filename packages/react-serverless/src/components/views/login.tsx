@@ -1,5 +1,6 @@
 import { useSearch, MakeGenerics, useNavigate } from "@tanstack/react-location";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { Button } from "@mantine/core";
 
 type MyLocationGenerics = MakeGenerics<{
   Search: {
@@ -21,7 +22,7 @@ export function Login() {
   return (
     <div>
       <a href="/.netlify/functions/auth">
-        <button>Login</button>
+        <Button>Login</Button>
       </a>
       {/* <button onClick={getAuthInfo}>Login</button> */}
     </div>

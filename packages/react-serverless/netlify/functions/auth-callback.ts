@@ -1,4 +1,5 @@
 import { Handler } from "@netlify/functions";
+import { IUserTokenResponse } from "../../types";
 import oauth2, { config } from "./utils/oauth";
 import { redis } from "./utils/redis";
 
@@ -14,11 +15,11 @@ export const handler: Handler = async (event, context, callback) => {
 
     const userId = accessToken.token["user_id"];
     const token = accessToken.token["access_token"];
-    const userDetails = {
+    const userDetails: IUserTokenResponse = {
       userId,
       token,
     };
-    const redisResp = await redis.set(userId, JSON.stringify(userDetails));
+    await redis.set(userId, JSON.stringify(userDetails));
 
     return {
       statusCode: 302,

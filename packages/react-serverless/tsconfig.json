@@ -17,7 +17,9 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@t/*": ["./types/*"],
+      "@assets/*": ["./public/assets/*"]
     }
   },
   "include": ["./src"]

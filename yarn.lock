@@ -250,7 +250,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.13.10", "@babel/runtime@^7.16.7", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.13.10", "@babel/runtime@^7.14.6", "@babel/runtime@^7.16.7", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.7":
   version "7.17.8"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.8.tgz#3e56e4aff81befa55ac3ac6a0967349fd1c5bca2"
   integrity sha512-dQpEpK0O9o6lj6oPu0gRDbbnk+4LeHlNcBpspf6Olzt3GIX4P1lWF1gS+pHLDFlaJvbR6q7jCfQ08zA4QJBnmA==
@@ -385,6 +385,22 @@
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.2.tgz#30aa825f11d438671d585bd44e7fd564535fc210"
   integrity sha512-82cpyJyKRoQoRi+14ibCeGPu0CwypgtBAdBhq1WfvagpCZNKqwXbKwXllYSMG91DhmG4jt9gN8eP6lGOtozuaw==
+
+"@giveback007/fitbit-api@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@giveback007/fitbit-api/-/fitbit-api-0.1.0.tgz#d8a34481aa71bb58f5e1f88b8c94a4fa4104d4b6"
+  integrity sha512-gPViUv3MVAO+mOJO2G4KWQx0MKsbshiFd00JfE2eKIUutRMUc5CTJXn1cTaZlZhin4xquTCYG8JT3ZPQPfqzDg==
+  dependencies:
+    "@giveback007/util-lib" "0.23.0"
+    rest-api-handler "2.21.9"
+    tslib "~2.3.1"
+
+"@giveback007/util-lib@0.23.0":
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/@giveback007/util-lib/-/util-lib-0.23.0.tgz#0b9840ea0d8006a37bb1e0d2d470da8cec0dd2e9"
+  integrity sha512-u0RmsHa41Oh4eJ34CCrEELJ5djYQscqFpuHdBtHJhVG0vnSCOp1/c9X7prURU9fKIeCA+dmOIYCHWEONm4be5g==
+  dependencies:
+    tslib "~2.0.3"
 
 "@hapi/accept@5.0.2":
   version "5.0.2"
@@ -5688,6 +5704,13 @@ resolve@^1.12.0:
     path-parse "^1.0.7"
     supports-preserve-symlinks-flag "^1.0.0"
 
+rest-api-handler@2.21.9:
+  version "2.21.9"
+  resolved "https://registry.yarnpkg.com/rest-api-handler/-/rest-api-handler-2.21.9.tgz#4b80d7b94d8e89bd06f76fe1fe7664dcd626b688"
+  integrity sha512-tE9/pzpEY9Y4cN/IITulz+m/HH53ZEy1ns+NDLLQF2sbTogcSnaaKRYfCTXLTK2ACwlBFIMytiYVBt+KnmtQ4Q==
+  dependencies:
+    "@babel/runtime" "^7.14.6"
+
 restore-cursor@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/restore-cursor/-/restore-cursor-3.1.0.tgz#39f67c54b3a7a58cea5236d95cf0034239631f7e"
@@ -6347,6 +6370,16 @@ tslib@^1.9.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
+
+tslib@~2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
+  integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
+
+tslib@~2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
 
 tty-browserify@0.0.1:
   version "0.0.1"

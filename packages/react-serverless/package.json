@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@giveback007/fitbit-api": "^0.1.0",
     "@mantine/core": "^4.1.0",
     "@mantine/dates": "^4.1.0",
     "@mantine/hooks": "^4.1.0",
