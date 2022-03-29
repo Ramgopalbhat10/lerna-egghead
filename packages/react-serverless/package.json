@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build && yarn post:build",
     "preview": "vite preview",
-    "post:build": "copy_redirect.sh"
+    "post:build": "./copy_redirect.sh"
   },
   "dependencies": {
     "@netlify/functions": "^0.10.0",
