@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <MHeader height={75} p="md">
       <img src={fitbitLogo} alt="Fitbit logo" style={{ width: "30px" }} />
-      {userId && (
+      {!userId && (
         <a href="/.netlify/functions/auth">
           <Button>Login</Button>
         </a>
