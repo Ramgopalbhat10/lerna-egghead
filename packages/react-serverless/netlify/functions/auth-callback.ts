@@ -21,6 +21,8 @@ export const handler: Handler = async (event, context, callback) => {
       userId,
       token,
     };
+    console.log("DB connection url -> ", process.env.DB_CONNECTION_URL);
+    console.log("User details are is -> ", userDetails);
     redis.set(userId, JSON.stringify(userDetails));
 
     return {
