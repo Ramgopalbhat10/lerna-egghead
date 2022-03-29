@@ -1,9 +1,7 @@
 import { Handler } from "@netlify/functions";
 import oauth2, { config } from "./utils/oauth";
-require("dotenv").config();
-import { Redis } from "@upstash/redis";
+import { redis } from "./utils/redis";
 
-const redis = Redis.fromEnv();
 export const handler: Handler = async (event, context, callback) => {
   const { code } = event.queryStringParameters;
 
