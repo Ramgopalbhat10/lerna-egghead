@@ -29,7 +29,7 @@ export const handler: Handler = async (event, context, callback) => {
     return {
       statusCode: 302,
       headers: {
-        Location: `https://fitbit-serverless.netlify.app`,
+        Location: `https://fitbit-serverless.netlify.app/dashboard?userId=${userId}`,
         "Cache-Control": "no-cache",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "Content-Type",
