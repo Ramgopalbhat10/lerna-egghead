@@ -35,6 +35,11 @@ p {
   font-size: 14px;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+}
+
 .mantine-AppShell-root,
 .mantine-Navbar-root {
   display: flex;
@@ -49,10 +54,6 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.mantine-AppShell-main {
-  padding: 0;
 }
 
 .profile-card {
