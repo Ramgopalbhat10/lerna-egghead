@@ -39,6 +39,10 @@ p {
   display: flex;
   align-items: center;
 }
+.flex-col {
+  flex-direction: column;
+  justify-content: center;
+}
 
 .mantine-AppShell-root,
 .mantine-Navbar-root {
@@ -49,7 +53,9 @@ p {
 .mantine-AppShell-body {
   flex-grow: 1;
 }
-
+.mantine-AppShell-main {
+  padding: 0;
+}
 .mantine-Header-root {
   display: flex;
   justify-content: space-between;

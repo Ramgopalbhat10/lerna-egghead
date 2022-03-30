@@ -47,7 +47,7 @@ export const Dashboard = () => {
   return (
     <div className="dashboard">
       <Navbar>
-        <Center style={{ fontWeight: "bold", fontSize: "24px" }}>Navbar</Center>
+        <Center style={{ fontWeight: 500, fontSize: "20px" }}>Navbar</Center>
         <Center
           sx={(theme) => ({
             flexGrow: 1,
