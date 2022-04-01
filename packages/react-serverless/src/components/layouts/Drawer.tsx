@@ -21,8 +21,8 @@ export const Drawer = ({ children }: { children?: JSX.Element[] }) => {
         padding="md"
         size="md"
         transition="slide-right"
-        transitionDuration={1500}
-        transitionTimingFunction="ease-in"
+        transitionDuration={250}
+        transitionTimingFunction="ease"
       >
         <Center
           sx={(theme) => ({
