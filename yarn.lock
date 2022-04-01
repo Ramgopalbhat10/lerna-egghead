@@ -6237,6 +6237,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+tabler-icons-react@^1.43.0:
+  version "1.43.0"
+  resolved "https://registry.yarnpkg.com/tabler-icons-react/-/tabler-icons-react-1.43.0.tgz#aefe858c7525be89539a8bfc75fe001af01483c8"
+  integrity sha512-xGrM/H5zurThI5zjt4dNveQaj7B/5tmV/akBvV7wAhqsFjnc7Ryi9IQ+rXXAFKC7YvJM8dUFXRi+rEQ41gaW0w==
+
 tar@^4.4.12:
   version "4.4.19"
   resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.19.tgz#2e4d7263df26f2b914dee10c825ab132123742f3"

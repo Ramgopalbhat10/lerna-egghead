@@ -1,6 +1,7 @@
 import { useSearch, MakeGenerics, useNavigate } from "@tanstack/react-location";
 import { useEffect } from "react";
 import { Button } from "@mantine/core";
+import { useUserContext } from "@/context/user-context";
 
 type MyLocationGenerics = MakeGenerics<{
   Search: {
@@ -10,21 +11,22 @@ type MyLocationGenerics = MakeGenerics<{
 
 export function Login() {
   const navigate = useNavigate();
-  const search = useSearch<MyLocationGenerics>();
+  const { userId } = useSearch<MyLocationGenerics>();
+  const { setIsLoggedIn, setUserId } = useUserContext();
 
   useEffect(() => {
-    if (search.userId) {
-      sessionStorage.setItem("userId", search.userId as string);
+    if (userId) {
+      setIsLoggedIn(true);
+      setUserId(userId);
       navigate({ to: "/dashboard", replace: true });
     }
-  }, []);
+  }, [userId]);
 
   return (
-    <div>
+    <div style={{ padding: "16px" }}>
       <a href="/.netlify/functions/auth">
         <Button>Login</Button>
       </a>
-      {/* <button onClick={getAuthInfo}>Login</button> */}
     </div>
   );
 }

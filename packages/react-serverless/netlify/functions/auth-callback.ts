@@ -1,5 +1,5 @@
 import { Handler } from "@netlify/functions";
-import { IUserTokenResponse } from "../../types";
+import { IUserToken } from "../../types";
 import oauth2, { config } from "./utils/oauth";
 import { redis } from "./utils/redis";
 
@@ -12,10 +12,9 @@ export const handler: Handler = async (event, context, callback) => {
   };
   try {
     const accessToken = await oauth2.getToken(tokenParam);
-
     const userId = accessToken.token["user_id"];
     const token = accessToken.token["access_token"];
-    const userDetails: IUserTokenResponse = {
+    const userDetails: IUserToken = {
       userId,
       token,
     };

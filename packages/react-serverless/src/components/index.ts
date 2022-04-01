@@ -4,3 +4,4 @@ export * from "./views/dashboard";
 export * from "./layouts/Navbar";
 export * from "./layouts/Footer";
 export * from "./layouts/Header";
+export * from "./layouts/Drawer";

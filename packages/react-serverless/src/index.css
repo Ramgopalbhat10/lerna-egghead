@@ -45,7 +45,8 @@ p {
 }
 
 .mantine-AppShell-root,
-.mantine-Navbar-root {
+.mantine-Navbar-root,
+.mantine-Drawer-drawer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -6,7 +6,6 @@ export const handler: Handler = (event, context, callback) => {
     redirect_uri: config.redirect_uri,
     scope: "activity heartrate location nutrition profile sleep weight",
   });
-  console.log("authorizationURI : ", authorizationURI);
 
   const response = {
     statusCode: 302,
