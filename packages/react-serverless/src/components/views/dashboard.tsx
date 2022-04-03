@@ -1,20 +1,31 @@
 import { useEffect, useState } from "react";
-import { FitbitProfile } from "@giveback007/fitbit-api/dist";
 import { useUserContext } from "@/context/user-context";
 import { getUserProfile, getUserToken } from "@/api/getUserData";
-
-type IUserDetails = {
-  user: FitbitProfile;
-};
+import { Center } from "@mantine/core";
+import { TopBadge } from "@/components/cards/TopBadge";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { IUserToken } from "@t/index";
 
 export const Dashboard = () => {
   const [token, setToken] = useState("");
-  const { userId, setUserProfile } = useUserContext();
+  const { userId, setUserId, setUserProfile, userProfile } = useUserContext();
+  const [userSession, setUserSession] = useLocalStorage<IUserToken | {}>(
+    "userSession"
+  );
+  const session = userSession as IUserToken;
+  const topBadges = userProfile?.topBadges;
+  const now = new Date();
 
   useEffect(() => {
+    if (session?.expiry && now.getTime() < session.expiry) {
+      setToken(session.token);
+      setUserId(session.userId);
+    } else {
+      setUserSession({});
+    }
     const fetchUserData = async (userId: string) => {
-      const userToken = await getUserToken(userId);
-      setToken(userToken.token);
+      // const userToken = await getUserToken(userId);
+      // setToken(userToken.token);
 
       if (token) {
         const userDetails = await getUserProfile({ userId, token });
@@ -28,8 +39,22 @@ export const Dashboard = () => {
   }, [token]);
 
   return (
-    <div className="dashboard" style={{ padding: "16px" }}>
-      <h2>Dashboard</h2>
-    </div>
+    <Center className="dashboard" style={{ padding: "16px" }}>
+      <h3 style={{ marginBottom: "10px" }}>Top Badges</h3>
+      <div className="top-badges">
+        {topBadges?.map((badge) => (
+          <TopBadge
+            badgeImage={badge.image125px}
+            badgeGradientStartColor={badge.badgeGradientStartColor}
+            badgeGradientEndColor={badge.badgeGradientEndColor}
+            name={badge.description}
+            shortName={badge.shortName}
+            earnedMessage={badge.earnedMessage}
+            description={badge.marketingDescription}
+            key={badge.encodedId}
+          />
+        ))}
+      </div>
+    </Center>
   );
 };

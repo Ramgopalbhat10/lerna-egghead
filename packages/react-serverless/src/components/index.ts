@@ -5,3 +5,4 @@ export * from "./layouts/Navbar";
 export * from "./layouts/Footer";
 export * from "./layouts/Header";
 export * from "./layouts/Drawer";
+export * from "./cards/TopBadge";

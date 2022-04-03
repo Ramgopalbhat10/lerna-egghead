@@ -66,3 +66,32 @@ p {
 .profile-card {
   display: flex;
 }
+
+.dashboard {
+  padding: "16px";
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+.total-badges {
+  display: flex;
+  flex-wrap: wrap;
+}
+.top-badges {
+  display: flex;
+}
+.badge-card {
+  margin: 16px;
+}
+.badge-star {
+  position: absolute;
+  bottom: 80px;
+  font-size: 32px;
+  right: 10px;
+}
+
+@media screen and (max-width: 425px) {
+  .top-badges {
+    flex-wrap: wrap;
+  }
+}
