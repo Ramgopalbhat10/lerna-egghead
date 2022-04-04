@@ -6,6 +6,7 @@ import { useUserContext } from "@/context/user-context";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { IUserToken } from "@t/index";
 import { useNavigate } from "@tanstack/react-location";
+import { FitbitProfile } from "@giveback007/fitbit-api";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ export const Header = () => {
     "userSession"
   );
   const session = userSession as IUserToken;
+  const [localUserProfile] = useLocalStorage<FitbitProfile>("userProfile");
   const now = new Date();
 
   useEffect(() => {
@@ -44,7 +46,11 @@ export const Header = () => {
         </div>
         {isLoggedIn && (
           <Tooltip
-            label={userProfile?.displayName}
+            label={
+              userProfile
+                ? userProfile.displayName
+                : localUserProfile.displayName
+            }
             position="left"
             transition="slide-down"
             transitionDuration={300}
@@ -53,7 +59,7 @@ export const Header = () => {
           >
             <Avatar
               onClick={() => navigate({ to: "/dashboard", replace: true })}
-              src={userProfile?.avatar}
+              src={userProfile ? userProfile.avatar : localUserProfile.avatar}
               alt="avatar 150"
               radius="xl"
             />
