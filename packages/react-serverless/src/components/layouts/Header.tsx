@@ -49,7 +49,7 @@ export const Header = () => {
             label={
               userProfile
                 ? userProfile.displayName
-                : localUserProfile.displayName
+                : localUserProfile?.displayName
             }
             position="left"
             transition="slide-down"
@@ -59,7 +59,7 @@ export const Header = () => {
           >
             <Avatar
               onClick={() => navigate({ to: "/dashboard", replace: true })}
-              src={userProfile ? userProfile.avatar : localUserProfile.avatar}
+              src={userProfile ? userProfile.avatar : localUserProfile?.avatar}
               alt="avatar 150"
               radius="xl"
             />

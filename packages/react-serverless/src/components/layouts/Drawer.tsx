@@ -38,7 +38,7 @@ export const Drawer = ({ children }: { children?: JSX.Element[] }) => {
           {}
         </Center>
         {user && (
-          <UserProfile avatar={user.avatar150} fullName={user.fullName} />
+          <UserProfile avatar={user?.avatar150} fullName={user?.fullName} />
         )}
       </MDrawer>
 
