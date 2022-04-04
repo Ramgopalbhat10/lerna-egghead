@@ -24,6 +24,7 @@ export function Login() {
       setIsLoggedIn(true);
       setUserId(userId);
       // save details in local-storage
+      console.log("saving user token in local storage", userId, token);
       setUserSession({
         userId,
         token: token as string,

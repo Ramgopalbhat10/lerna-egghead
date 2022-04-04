@@ -22,7 +22,7 @@ export const Header = () => {
     } else {
       setUserSession({});
     }
-  }, [isLoggedIn]);
+  }, []);
 
   return (
     <MHeader height={50} p="md">
@@ -51,7 +51,12 @@ export const Header = () => {
             transitionTimingFunction="ease"
             withArrow
           >
-            <Avatar src={userProfile?.avatar} alt="avatar 150" radius="xl" />
+            <Avatar
+              onClick={() => navigate({ to: "/dashboard", replace: true })}
+              src={userProfile?.avatar}
+              alt="avatar 150"
+              radius="xl"
+            />
           </Tooltip>
         )}
       </div>
