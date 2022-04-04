@@ -15,7 +15,8 @@ export const Header = () => {
     "userSession"
   );
   const session = userSession as IUserToken;
-  const [localUserProfile] = useLocalStorage<FitbitProfile>("userProfile");
+  const [localUserProfile, _, removeUserProfile] =
+    useLocalStorage<FitbitProfile>("userProfile");
   const now = new Date();
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export const Header = () => {
       setIsLoggedIn(true);
     } else {
       setUserSession({});
+      removeUserProfile("userProfile");
     }
   }, []);
 
@@ -58,7 +60,7 @@ export const Header = () => {
             withArrow
           >
             <Avatar
-              onClick={() => navigate({ to: "/dashboard", replace: true })}
+              onClick={() => navigate({ to: "/profile", replace: true })}
               src={userProfile ? userProfile.avatar : localUserProfile?.avatar}
               alt="avatar 150"
               radius="xl"
