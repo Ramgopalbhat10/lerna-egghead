@@ -1,4 +1,5 @@
 import { Router, Outlet } from "@tanstack/react-location";
+import { ReactLocationDevtools } from "@tanstack/react-location-devtools";
 import { MantineProvider, AppShell } from "@mantine/core";
 import { route, location } from "@/router/route";
 import { Footer, Header } from "@/components";
@@ -23,6 +24,7 @@ const App: React.FC = () => {
         >
           <Router routes={route} location={location}>
             <Outlet />
+            {/* <ReactLocationDevtools /> */}
           </Router>
         </AppShell>
       </UserProvider>

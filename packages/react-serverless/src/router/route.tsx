@@ -1,5 +1,5 @@
 import { ReactLocation, Route } from "@tanstack/react-location";
-import { Dashboard, Home, Login } from "@/components";
+import { Dashboard, Home, Login, Profile } from "@/components";
 
 export const route: Route[] = [
   {
@@ -13,6 +13,10 @@ export const route: Route[] = [
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ];
 

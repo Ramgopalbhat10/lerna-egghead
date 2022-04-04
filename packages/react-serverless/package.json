@@ -16,6 +16,7 @@
     "@mantine/notifications": "^4.1.0",
     "@netlify/functions": "^0.10.0",
     "@tanstack/react-location": "^3.7.4",
+    "@tanstack/react-location-devtools": "^3.4.4",
     "@upstash/redis": "^1.0.3",
     "dayjs": "^1.11.0",
     "dotenv": "^16.0.0",

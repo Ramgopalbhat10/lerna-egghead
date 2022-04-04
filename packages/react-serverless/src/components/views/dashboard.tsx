@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useUserContext } from "@/context/user-context";
-import { getUserProfile, getUserToken } from "@/api/getUserData";
+import { getUserProfile } from "@/api/getUserData";
 import { Center } from "@mantine/core";
 import { TopBadge } from "@/components/cards/TopBadge";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { IUserToken } from "@t/index";
+import { FitbitProfile } from "@giveback007/fitbit-api";
 
 export const Dashboard = () => {
   const [token, setToken] = useState("");
@@ -13,6 +14,9 @@ export const Dashboard = () => {
     "userSession"
   );
   const session = userSession as IUserToken;
+  const [_, storeUserProfile, removeUserProfile] =
+    useLocalStorage<FitbitProfile>("userProfile");
+
   const topBadges = userProfile?.topBadges;
   const now = new Date();
 
@@ -22,14 +26,13 @@ export const Dashboard = () => {
       setUserId(session.userId);
     } else {
       setUserSession({});
+      removeUserProfile("userProfile");
     }
     const fetchUserData = async (userId: string) => {
-      // const userToken = await getUserToken(userId);
-      // setToken(userToken.token);
-
       if (token) {
         const userDetails = await getUserProfile({ userId, token });
         setUserProfile(userDetails.user);
+        storeUserProfile(userDetails.user);
       }
     };
 

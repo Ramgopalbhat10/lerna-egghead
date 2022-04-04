@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useUserContext } from "@/context/user-context";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { IUserToken } from "@t/index";
+import { Link } from "@tanstack/react-location";
 
 export const Header = () => {
   const { isLoggedIn, setIsLoggedIn, userProfile } = useUserContext();
@@ -12,7 +13,6 @@ export const Header = () => {
     "userSession"
   );
   const session = userSession as IUserToken;
-
   const now = new Date();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const Header = () => {
     } else {
       setUserSession({});
     }
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <MHeader height={50} p="md">
@@ -32,9 +32,13 @@ export const Header = () => {
         <div className="flex">
           {isLoggedIn && <Drawer />}
           <img src={fitbitLogo} alt="Fitbit logo" style={{ width: "30px" }} />
-          <p style={{ marginLeft: "10px", fontSize: "16px", fontWeight: 500 }}>
-            FitBit Stats
-          </p>
+          <Link to="/">
+            <p
+              style={{ marginLeft: "10px", fontSize: "16px", fontWeight: 500 }}
+            >
+              FitBit Stats
+            </p>
+          </Link>
         </div>
         {isLoggedIn && (
           <Tooltip
