@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 const setInitialStore = <T>(key: string, initialValue: T) => {
   if (typeof window === undefined) {
@@ -39,5 +39,6 @@ export const useLocalStorage = <T>(key: string, initialValue?: T) => {
     window.localStorage.removeItem(key);
   };
 
-  return [storedValue, setValue, removeValue] as const;
+  const value = useMemo(() => storedValue, [storedValue]);
+  return [value, setValue, removeValue] as const;
 };

@@ -2,11 +2,15 @@ import { Drawer as MDrawer, Button, MediaQuery, Center } from "@mantine/core";
 import { useState } from "react";
 import { AlignJustified } from "tabler-icons-react";
 import { useUserContext } from "@/context/user-context";
-import { UserProfile } from "../cards/UserProfile";
+import { UserProfile } from "@/components/cards/UserProfile";
+import { FitbitProfile } from "@giveback007/fitbit-api";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 export const Drawer = ({ children }: { children?: JSX.Element[] }) => {
   const [opened, setOpened] = useState(false);
   const { userProfile } = useUserContext();
+  const [localUserProfile] = useLocalStorage<FitbitProfile>("userProfile");
+  const user = userProfile ? userProfile : localUserProfile;
 
   const zeroPadding = {
     padding: "0",
@@ -33,11 +37,8 @@ export const Drawer = ({ children }: { children?: JSX.Element[] }) => {
         >
           {}
         </Center>
-        {userProfile && (
-          <UserProfile
-            avatar={userProfile.avatar150}
-            fullName={userProfile.fullName}
-          />
+        {user && (
+          <UserProfile avatar={user.avatar150} fullName={user.fullName} />
         )}
       </MDrawer>
 
