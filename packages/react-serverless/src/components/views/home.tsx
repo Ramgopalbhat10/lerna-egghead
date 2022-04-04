@@ -1,6 +1,6 @@
 import { Button } from "@mantine/core";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useEffect } from "react";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 export const Home = () => {
   const [userSession] = useLocalStorage<{}>("userSession", {});

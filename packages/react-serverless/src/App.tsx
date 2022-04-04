@@ -23,7 +23,6 @@ const App: React.FC = () => {
         >
           <Router routes={route} location={location}>
             <Outlet />
-            {/* <ReactLocationDevtools /> */}
           </Router>
         </AppShell>
       </UserProvider>

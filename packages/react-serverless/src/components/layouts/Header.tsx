@@ -5,9 +5,10 @@ import { useEffect } from "react";
 import { useUserContext } from "@/context/user-context";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { IUserToken } from "@t/index";
-import { Link } from "@tanstack/react-location";
+import { useNavigate } from "@tanstack/react-location";
 
 export const Header = () => {
+  const naviagte = useNavigate()
   const { isLoggedIn, setIsLoggedIn, userProfile } = useUserContext();
   const [userSession, setUserSession] = useLocalStorage<IUserToken | {}>(
     "userSession"
@@ -32,13 +33,10 @@ export const Header = () => {
         <div className="flex">
           {isLoggedIn && <Drawer />}
           <img src={fitbitLogo} alt="Fitbit logo" style={{ width: "30px" }} />
-          <Link to="/">
-            <p
-              style={{ marginLeft: "10px", fontSize: "16px", fontWeight: 500 }}
-            >
-              FitBit Stats
-            </p>
-          </Link>
+
+          <p onClick={() => (naviagte({ to: "/", replace: true }))} style={{ marginLeft: "10px", fontSize: "16px", fontWeight: 500 }}>
+            FitBit Stats
+          </p>
         </div>
         {isLoggedIn && (
           <Tooltip
