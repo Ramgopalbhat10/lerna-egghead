@@ -1,6 +1,6 @@
 import { Avatar, Header as MHeader, Tooltip } from "@mantine/core";
 import fitbitLogo from "@assets/fitbit-icon.svg";
-import { Drawer } from "./Drawer";
+import { Drawer } from "../drawer/Drawer";
 import { useEffect } from "react";
 import { useUserContext } from "@/context/user-context";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
