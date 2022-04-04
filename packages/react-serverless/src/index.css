@@ -63,10 +63,17 @@ p {
   align-items: center;
 }
 
+.title {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.title:hover {
+  cursor: pointer;
+}
 .profile-card {
   display: flex;
 }
-
 .dashboard {
   padding: "16px";
   max-width: 1200px;

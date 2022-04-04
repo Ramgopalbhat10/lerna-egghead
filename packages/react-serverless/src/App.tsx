@@ -8,23 +8,23 @@ const App: React.FC = () => {
   return (
     <MantineProvider theme={{ colorScheme: "dark" }} withGlobalStyles>
       <UserProvider>
-        <AppShell
-          padding="md"
-          header={<Header />}
-          footer={<Footer />}
-          styles={(theme) => ({
-            main: {
-              backgroundColor:
-                theme.colorScheme === "dark"
-                  ? theme.colors.dark[8]
-                  : theme.colors.gray[0],
-            },
-          })}
-        >
-          <Router routes={route} location={location}>
+        <Router routes={route} location={location}>
+          <AppShell
+            padding="md"
+            header={<Header />}
+            footer={<Footer />}
+            styles={(theme) => ({
+              main: {
+                backgroundColor:
+                  theme.colorScheme === "dark"
+                    ? theme.colors.dark[8]
+                    : theme.colors.gray[0],
+              },
+            })}
+          >
             <Outlet />
-          </Router>
-        </AppShell>
+          </AppShell>
+        </Router>
       </UserProvider>
     </MantineProvider>
   );

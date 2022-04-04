@@ -8,7 +8,7 @@ import { IUserToken } from "@t/index";
 import { useNavigate } from "@tanstack/react-location";
 
 export const Header = () => {
-  const naviagte = useNavigate()
+  const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn, userProfile } = useUserContext();
   const [userSession, setUserSession] = useLocalStorage<IUserToken | {}>(
     "userSession"
@@ -34,7 +34,11 @@ export const Header = () => {
           {isLoggedIn && <Drawer />}
           <img src={fitbitLogo} alt="Fitbit logo" style={{ width: "30px" }} />
 
-          <p onClick={() => (naviagte({ to: "/", replace: true }))} style={{ marginLeft: "10px", fontSize: "16px", fontWeight: 500 }}>
+          <p
+            className="title"
+            onClick={() => navigate({ to: "/", replace: true })}
+            style={{ marginLeft: "10px", fontSize: "16px", fontWeight: 500 }}
+          >
             FitBit Stats
           </p>
         </div>
